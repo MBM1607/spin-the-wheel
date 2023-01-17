@@ -9,4 +9,5 @@ module.exports = {
     },
   ],
   astroAllowShorthand: false,
+  trailingComma: "all",
 };
