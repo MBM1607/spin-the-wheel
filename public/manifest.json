@@ -1,0 +1,23 @@
+{
+  "short_name": "Wheel of Wager",
+  "name": "Wheel of Wager",
+  "icons": [
+    {
+      "src": "/images/android-chrome-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "id": "/?source=pwa",
+  "start_url": "/?source=pwa",
+  "background_color": "#1affd9",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#1affd9",
+  "description": "Wheel of Wager is an exciting and thrilling online game where players can test their luck and win big! It's all up to fate and the spin of the wheel. With simple gameplay and the chance to win big, Try your luck and spin the wheel today!"
+}
