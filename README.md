@@ -1,4 +1,4 @@
-# Wheel of Wager
+# 🎡 Wheel of Wager
 
 Wheel of Wager is an exciting and thrilling online game where players can test their luck and win
 big! It's all up to fate and the spin of the wheel. With simple gameplay and the chance to win
