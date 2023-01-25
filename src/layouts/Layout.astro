@@ -34,9 +34,14 @@ const { title, description } = Astro.props;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    --background-color: #0a2e36;
+    --text-color: #fafafa;
+    --primary-color: #09a129;
+    --secondary-color: #036d19;
   }
   html {
     font-family: system-ui, sans-serif;
-    background-color: #f6f6f6;
+    background-color: var(--background-color);
+    color: var(--text-color);
   }
 </style>
