@@ -13,6 +13,8 @@
     "lint": "eslint . --fix && prettier -w --plugin-search-dir=. ."
   },
   "dependencies": {
+    "@fontsource/pontano-sans": "^4.5.10",
+    "@fontsource/stick-no-bills": "^4.5.13",
     "astro": "^2.0.1"
   },
   "devDependencies": {

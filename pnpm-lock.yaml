@@ -1,6 +1,8 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@fontsource/pontano-sans': ^4.5.10
+  '@fontsource/stick-no-bills': ^4.5.13
   '@typescript-eslint/eslint-plugin': ^5.48.2
   '@typescript-eslint/parser': ^5.48.2
   astro: ^2.0.1
@@ -13,6 +15,8 @@ specifiers:
   prettier-plugin-astro: ^0.7.2
 
 dependencies:
+  '@fontsource/pontano-sans': 4.5.10
+  '@fontsource/stick-no-bills': 4.5.13
   astro: 2.0.1
 
 devDependencies:
@@ -573,6 +577,14 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@fontsource/pontano-sans/4.5.10:
+    resolution: {integrity: sha512-jER6pn+9tU9Xq13X0sWYsMU/k8NE31PdE/qxiQCqjjW+aEbS0yuZ35WiDkyRF74qPzkoQj5r/ODQmiQ+F6/f3A==}
+    dev: false
+
+  /@fontsource/stick-no-bills/4.5.13:
+    resolution: {integrity: sha512-XrIR3ne1ixx9/MlBcOQWonipSsSu2J82lqVUIloVm8KTttB6aFerrHKoMFKFqLidKuIcrnwnOLzyBv66eGrqng==}
+    dev: false
 
   /@humanwhocodes/config-array/0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}

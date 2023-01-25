@@ -1,4 +1,7 @@
 ---
+import "@fontsource/pontano-sans";
+import "@fontsource/stick-no-bills";
+
 export interface Props {
   title: string;
   description: string;
@@ -31,17 +34,97 @@ const { title, description } = Astro.props;
 
 <style is:global>
   :root {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    --background-color: #0a2e36;
-    --text-color: #fafafa;
-    --primary-color: #09a129;
-    --secondary-color: #036d19;
+    --white: #fff;
+    --white-back: #f6f6f6;
+    --white-focus: #eee;
+    --black: #344;
+    --black-focus: #455;
+    --black-light: #566;
+    --black-dark: #122;
+    --primary: hsl(170, 100%, 55%);
+    --primary-light: hsl(170, 100%, 80%);
+    --primary-dark: hsl(170, 100%, 40%);
+    --secondary: hsl(65, 100%, 65%);
+    --secondary-light: hsl(65, 100%, 75%);
+    --secondary-dark: hsl(65, 100%, 45%);
+    --error: hsl(15, 100%, 45%);
+    --error-light: hsl(15, 100%, 55%);
+    --error-dark: hsl(15, 100%, 35%);
+    --success: var(--primary);
+    --success-light: var(--primary-light);
+    --success-dark: var(--primary-dark);
+    --warning: hsl(35, 100, 45);
+    --warning-light: hsl(35, 100, 55);
+    --warning-dark: hsl(35, 100, 35);
+    --info: hsl(200, 100, 45);
+    --info-light: hsl(200, 100, 55);
+    --info-dark: hsl(200, 100, 35);
+    --spacing: 10px;
+    --transition: 0.2s ease-in-out;
+    font-size: 16px;
+    scroll-behavior: smooth;
   }
   html {
-    font-family: system-ui, sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    font-family: "Pontano Sans", sans-serif;
+    background-color: var(--back);
+    color: var(--fore);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Stick No Bills", sans-serif;
+  }
+
+  h1 {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+  }
+  body > * {
+    width: min(100%, 1000px);
+    padding-inline: max(var(--spacing), 2%);
+  }
+  code {
+    font-family: monospace;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  :root:not([data-theme="dark"]),
+  :root[data-theme="light"] {
+    --theme: light;
+    --back: var(--white-back);
+    --back-focus: var(--white-focus);
+    --fore: var(--black);
+    --fore-focus: var(--black-focus);
+  }
+  :root[data-theme="dark"] {
+    --theme: dark;
+    --back: var(--black);
+    --back-focus: var(--black-focus);
+    --fore: var(--white);
+    --fore-focus: var(--white-focus);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --theme: dark;
+      --back: var(--black);
+      --back-focus: var(--black-focus);
+      --fore: var(--white);
+      --fore-focus: var(--white-focus);
+    }
   }
 </style>
