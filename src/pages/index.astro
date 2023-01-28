@@ -1,4 +1,7 @@
 ---
+import Button from "../components/Button.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -6,7 +9,22 @@ import Layout from "../layouts/Layout.astro";
   title="Wheel of Wager"
   description="Wheel of Wager is an exciting and thrilling online game where players can test their luck and win big! It's all up to fate and the spin of the wheel. With simple gameplay and the chance to win big, Try your luck and spin the wheel today!"
 >
+  <Header />
   <main>
     <h1>Wheel of Wager</h1>
+    <Button color="primary" style="width: 100%; text-align: center;">
+      Play Now
+    </Button>
   </main>
+  <Footer />
 </Layout>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 80vh;
+  }
+</style>

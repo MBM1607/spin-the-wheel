@@ -1,0 +1,102 @@
+<label class="switch">
+  <input type="checkbox" hidden />
+  <div class="content">
+    <svg class="light" viewBox="0 0 256 256">
+      <path
+        class="fill"
+        d="M128.001 70.23c31.906 0 57.77 25.865 57.77 57.771 0 31.906-25.864 57.77-57.77 57.77-31.906 0-57.77-25.864-57.77-57.77 0-31.906 25.864-57.77 57.77-57.77zM174.698 72.082L187.18 25.5l-34.085 34.084a72.8 72.8 0 0121.603 12.5zm-34.219-15.867L128 9.642l-12.479 46.573A73.32 73.32 0 01128 55.147c4.255 0 8.423.368 12.479 1.068zm-37.573 3.368L68.821 25.5l12.482 46.584a72.772 72.772 0 0121.603-12.5zm-30.824 21.72L25.5 68.82l34.084 34.085a72.791 72.791 0 0112.5-21.603zm-15.867 34.219L9.642 128.001l46.573 12.479a73.32 73.32 0 01-1.068-12.479c0-4.255.368-8.424 1.068-12.479zm3.368 37.573L25.5 187.18l46.584-12.482a72.769 72.769 0 01-12.5-21.603zm21.72 30.823L68.82 230.502l34.085-34.085a72.763 72.763 0 01-21.603-12.499zm34.219 15.868l12.479 46.573 12.479-46.573a73.31 73.31 0 01-12.479 1.068 73.31 73.31 0 01-12.479-1.068zm37.573-3.369l34.085 34.085-12.482-46.584a72.738 72.738 0 01-21.603 12.499zm30.823-21.719l46.584 12.482-34.085-34.085a72.772 72.772 0 01-12.499 21.603zm15.868-34.219L246.359 128l-46.573-12.479A73.31 73.31 0 01200.854 128a73.31 73.31 0 01-1.068 12.479zm-3.369-37.573l34.085-34.085-46.584 12.482a72.72 72.72 0 0112.499 21.603z"
+      ></path>
+    </svg>
+    <svg class="dark" viewBox="0 0 256 256">
+      <path
+        class="fill"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M185.889 49.897l3.463-11.322 3.408 11.24 11.294 3.462-11.294 3.325-3.408 11.377-3.463-11.35-11.239-3.352 11.239-3.38zm-34.32 52.478l5.456-17.837 5.369 17.708 17.793 5.455-17.794 5.239-5.368 17.924-5.456-17.881-17.708-5.282 17.708-5.326zm73.539 27.974c-1.204 52.666-44.271 94.99-97.226 94.99-53.713 0-97.256-43.542-97.256-97.255 0-53.06 42.493-96.191 95.305-97.23-25.023 11.991-42.305 37.555-42.305 67.157 0 41.105 33.322 74.428 74.428 74.428 29.516 0 55.019-17.182 67.053-42.09h.001z"
+      ></path>
+    </svg>
+  </div>
+</label>
+<style>
+  label {
+    display: flex;
+  }
+  input {
+    display: none;
+  }
+  div {
+    --offset: calc(0.5 * var(--spacing));
+    display: flex;
+    border-radius: 25px;
+    background-color: var(--black-light);
+    flex-wrap: nowrap;
+    height: 35px;
+    gap: var(--spacing);
+    padding: var(--offset);
+    border: 2px solid var(--fore);
+    position: relative;
+    cursor: pointer;
+    transition: border var(--transition), transform var(--transition);
+  }
+  label:focus-visible > div,
+  label:hover > div {
+    transform: scale(1.05);
+  }
+  div::before {
+    content: "";
+    display: flex;
+    height: 100%;
+    width: auto;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--black);
+    transition: transform var(--transition);
+  }
+  input:checked + div::before {
+    transform: translateX(30px);
+  }
+  svg {
+    --fill: var(--white-focus);
+    display: flex;
+    height: 100%;
+    width: auto;
+    aspect-ratio: 1;
+    z-index: 2;
+  }
+  path {
+    fill: var(--fill);
+    transition: fill var(--transition);
+  }
+  input:not(:checked) {
+  }
+  input:not(:checked) + div > .light {
+    --fill: var(--secondary);
+  }
+  input:checked + div > .dark {
+    --fill: var(--secondary-light);
+  }
+</style>
+<script>
+  const input = document.querySelector(".switch > input") as HTMLInputElement;
+  const query = window.matchMedia("(prefers-color-scheme: dark)");
+
+  const isDark = query.matches;
+  input.checked = isDark;
+  const defaultTheme = isDark ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", defaultTheme);
+
+  query.addEventListener("change", (event) => {
+    const newTheme = event.matches ? "dark" : "light";
+    input.checked = event.matches;
+    document.documentElement.setAttribute("data-theme", newTheme);
+  });
+
+  input.addEventListener("click", (event) => {
+    const themeSwitch = event.currentTarget as HTMLInputElement;
+    const newTheme = themeSwitch.checked ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", newTheme);
+  });
+</script>
